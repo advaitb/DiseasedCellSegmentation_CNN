@@ -17,7 +17,7 @@ def save_model(self, **params):
         self.model.save_weights('my_model_weights.h5')
 
     @staticmethod
-    def load_model(**params):
+def load_model(**params):
 
         # file_name = params['name']
         # return pickle.load(gzip.open(file_name, 'rb'))
@@ -25,8 +25,8 @@ def save_model(self, **params):
         """
             returns a pre-trained instance of Segment class
         """
-        with open('model.config') as in_file:
-          json_string = json.load(in_file)
+     with open('model.config') as in_file:
+        json_string = json.load(in_file)
         model = model_from_json(json_string)
         model.load_weights('my_model_weights.h5')
         model.compile(loss='mean_squared_error',
